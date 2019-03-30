@@ -1,0 +1,6 @@
+﻿Private Sub Workbook_Open()
+
+    frmRotationAxis.Show False
+    Application.Sheets("Data").Activate
+
+End Sub
