@@ -16,29 +16,44 @@ Attribute VB_Exposed = False
 Option Explicit
 Dim xRot, yRot, zRot As Integer
 
+'singleton pattern similar to how MSForms work
+
+Private Alpha As Name
+Private Beta As Name
+Private Gamma As Name
+
+' Research VBA AUTO INIT
+Public Sub ShowInit(nrAlpha As Name, nrBeta As Name, nrGamma As Name)
+    Set Alpha = nrAlpha
+    Set Beta = nrBeta
+    Set Gamma = nrGamma
+    Me.Show False
+    
+    Me.txtXRot.Value = Alpha.RefersToRange.Value2
+    Me.ScrollBarX.Value = Alpha.RefersToRange.Value2 + 180
+    Me.lblXScrollRot.Caption = Alpha.RefersToRange.Value2
+    
+    
+    Me.txtYRot.Value = Beta.RefersToRange.Value2
+    Me.ScrollBarY.Value = Beta.RefersToRange.Value2 + 180
+    Me.lblYScrollRot.Caption = Beta.RefersToRange.Value2
+    
+    
+    Me.txtZRot.Value = Gamma.RefersToRange.Value2
+    Me.ScrollBarZ.Value = Gamma.RefersToRange.Value2 + 180
+    Me.lblZScrollRot.Caption = Gamma.RefersToRange.Value2
+
+    
+End Sub
+
 Private Sub ScrollBarX_Change()
     Me.txtXRot = Me.ScrollBarX.Value - 180
     Me.lblXScrollRot.Caption = Me.txtXRot
     xRot = Me.txtXRot
-    Application.Sheets("Support").Range("AlphaDeg").Value = xRot
+    Alpha.RefersToRange.Value2 = xRot
+    'ThisWorkbook.Sheets("Support").Range("AlphaDeg").Value = xRot
 
 End Sub
-
-'Private Sub ScrollBarX_Scroll()
-'    Me.lblXScrollRot.Caption = Me.txtXRot
-'    xRot = Me.txtXRot
-'    Application.Sheets("Support").Range("AlphaDeg").Value = xRot
-'End Sub
-'
-'Private Sub ScrollBarY_Scroll()
-'    Me.lblYScrollRot.Caption = Me.txtYRot
-'    yRot = Me.txtYRot
-'End Sub
-'
-'Private Sub ScrollBarZ_Scroll()
-'    Me.lblZScrollRot.Caption = Me.txtZRot
-'    zRot = Me.txtZRot
-'End Sub
 
 Private Sub ScrollBarY_Change()
     Dim y As Integer
@@ -46,7 +61,8 @@ Private Sub ScrollBarY_Change()
     Me.txtYRot = Me.ScrollBarY.Value - 180
     Me.lblYScrollRot.Caption = Me.txtYRot
     yRot = Me.txtYRot
-    Application.Sheets("Support").Range("BetaDeg").Value = yRot
+    Beta.RefersToRange.Value2 = yRot
+    'ThisWorkbook.Sheets("Support").Range("BetaDeg").Value = yRot
 
 End Sub
 
@@ -56,7 +72,8 @@ Private Sub ScrollBarZ_Change()
     Me.txtZRot = Me.ScrollBarZ.Value - 180
     Me.lblZScrollRot.Caption = Me.txtZRot
     zRot = Me.txtZRot
-    Application.Sheets("Support").Range("GammaDeg").Value = zRot
+    Gamma.RefersToRange.Value2 = xRot
+    'ThisWorkbook.Sheets("Support").Range("GammaDeg").Value = zRot
 
 End Sub
 
@@ -86,7 +103,7 @@ Private Sub txtXRot_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     End If
     Me.ScrollBarX.Value = x + 180
     xRot = x
-    Application.Sheets("Support").Range("AlphaDeg").Value = x
+    ThisWorkbook.Sheets("Support").Range("AlphaDeg").Value = x
     Exit Sub
 
 End Sub

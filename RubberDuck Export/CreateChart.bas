@@ -1,6 +1,8 @@
 Attribute VB_Name = "CreateChart"
+Option Explicit
 Sub ChartArray()
-
+    Dim i As Double
+    
     Dim x(0 To 1000, 0 To 0) As Double
     Dim y(0 To 1000, 0 To 0) As Double
     x(0, 0) = 0

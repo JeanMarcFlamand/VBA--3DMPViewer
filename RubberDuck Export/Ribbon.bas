@@ -2,11 +2,11 @@ Attribute VB_Name = "Ribbon"
 Option Explicit
 Private ThreeDViewerRibbon As IRibbonUI
 
-Public Sub ThreeDviewerRibbonctrl(ribbon As IRibbonUI)
+Public Sub ThreeDviewerRibbonctrl(Ribbon As IRibbonUI)
     '
     ' Code for onLoad callback. Ribbon control customUI
     '
-    Set ThreeDViewerRibbon = ribbon
+    Set ThreeDViewerRibbon = Ribbon
 
 End Sub
 
@@ -65,7 +65,9 @@ Public Sub BtnShowRotationTool_onAction(control As IRibbonControl)
     '
     ' Code for onAction callback. Ribbon control button
     '
-    frmRotationAxis.Show False
+    'frmRotationAxis.Show False
+    
+    PrepareForm
 End Sub
 
 Public Sub About_onAction(control As IRibbonControl)
@@ -111,7 +113,7 @@ Sub PredefineViews(myform As String, xDeg As Integer, yDeg As Integer, zdeg As I
         PredefineRotation xDeg, yDeg, zdeg
     Else
         'Reopen the form"
-        frmRotationAxis.Show False
+        PrepareForm
         PredefineRotation xDeg, yDeg, zdeg
     End If
 End Sub
@@ -119,12 +121,14 @@ End Sub
 Sub PredefineRotation(xDeg As Integer, yDeg As Integer, zdeg As Integer)
 
     'Update value in the worksheet
-    Application.Sheets("Support").Range("AlphaDeg").Value = xDeg
-    Application.Sheets("Support").Range("BetaDeg").Value = yDeg
-    Application.Sheets("Support").Range("GammaDeg").Value = zdeg
+    ThisWorkbook.Sheets("Support").Range("AlphaDeg").Value = xDeg
+    ThisWorkbook.Sheets("Support").Range("BetaDeg").Value = yDeg
+    ThisWorkbook.Sheets("Support").Range("GammaDeg").Value = zdeg
+    
+  
     
     'Update value on the form
-    frmRotationAxis.txtXRot.Value = yDeg
+    frmRotationAxis.txtXRot.Value = xDeg
     frmRotationAxis.ScrollBarX.Value = xDeg + 180
     frmRotationAxis.lblXScrollRot.Caption = xDeg
        
@@ -136,7 +140,7 @@ Sub PredefineRotation(xDeg As Integer, yDeg As Integer, zdeg As Integer)
     frmRotationAxis.ScrollBarZ.Value = zdeg + 180
     frmRotationAxis.lblZScrollRot.Caption = zdeg
        
-
+ 
 
 
 
