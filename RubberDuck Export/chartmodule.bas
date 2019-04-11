@@ -3,7 +3,7 @@ Option Explicit
 
 Private m_objChtEvents As New cls3DViewerChartEvents
 
-Public Sub SelectChart(ByRef wks As Worksheet, ByRef rngPopupMsgs As Range)
+Public Sub SelectChart(ByRef wks As Worksheet)
     Dim objChart As Chart
 
     If wks.ChartObjects.Count > 0 Then

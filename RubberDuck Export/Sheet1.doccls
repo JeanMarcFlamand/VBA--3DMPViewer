@@ -1,7 +1,4 @@
-﻿Private Sub ScrollBarX_Change()
-    Range("$N$6").Value = Application.ActiveSheet.ScrollBarX.Value - 180
-
-End Sub
+﻿
 
 Private Sub Worksheet_Activate()
 

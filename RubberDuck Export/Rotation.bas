@@ -21,8 +21,3 @@ Function GammaRad(Degree As Double) As Variant
     GammaRad = 2 * (WorksheetFunction.Pi() / 360) * Degree
 End Function
 
-Function Pone()
-
-    Pone = Cos(2 * (WorksheetFunction.Pi() / 360) * Application.Range("BetaDeg").Value) * Cos(2 * (WorksheetFunction.Pi() / 360) * Application.Range("GammaDeg").Value)
-End Function
-

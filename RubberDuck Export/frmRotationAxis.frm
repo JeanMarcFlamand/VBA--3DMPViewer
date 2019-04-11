@@ -1,6 +1,6 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} frmRotationAxis 
-   Caption         =   "Rotation Axis"
+   Caption         =   "Rotation Axis - Around Origin(0,0,0)"
    ClientHeight    =   4695
    ClientLeft      =   120
    ClientTop       =   465
@@ -50,7 +50,7 @@ Private Sub ScrollBarX_Change()
     Me.txtXRot = Me.ScrollBarX.Value - 180
     Me.lblXScrollRot.Caption = Me.txtXRot
     xRot = Me.txtXRot
-    Alpha.RefersToRange.Value2 = xRot
+    Alpha.RefersToRange.Value = xRot
     'ThisWorkbook.Sheets("Support").Range("AlphaDeg").Value = xRot
 
 End Sub
@@ -61,7 +61,7 @@ Private Sub ScrollBarY_Change()
     Me.txtYRot = Me.ScrollBarY.Value - 180
     Me.lblYScrollRot.Caption = Me.txtYRot
     yRot = Me.txtYRot
-    Beta.RefersToRange.Value2 = yRot
+    Beta.RefersToRange.Value = yRot
     'ThisWorkbook.Sheets("Support").Range("BetaDeg").Value = yRot
 
 End Sub
@@ -72,7 +72,7 @@ Private Sub ScrollBarZ_Change()
     Me.txtZRot = Me.ScrollBarZ.Value - 180
     Me.lblZScrollRot.Caption = Me.txtZRot
     zRot = Me.txtZRot
-    Gamma.RefersToRange.Value2 = xRot
+    Gamma.RefersToRange.Value = zRot
     'ThisWorkbook.Sheets("Support").Range("GammaDeg").Value = zRot
 
 End Sub
@@ -93,7 +93,7 @@ Private Sub txtXRot_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     Else
         If Not IsNumeric(x) Then                 ' Replace with the previous value
             Me.ScrollBarX.Value = xRot + 180
-            MsgBox "Invalid data Entry"
+            MsgBox "Invalid data Entry", vbCritical, "Invalid Data"
             Me.txtXRot = xRot
             Me.lblXScrollRot.Caption = Me.txtXRot
             
@@ -124,7 +124,7 @@ Private Sub txtYRot_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     Else
         If Not IsNumeric(y) Then                 ' Replace with the previous value
             Me.ScrollBarY.Value = yRot + 180
-            MsgBox "Invalid data Entry"
+            MsgBox "Invalid data Entry", vbCritical, "Invalid Data"
             Me.txtYRot = yRot
             Me.lblYScrollRot.Caption = Me.txtYRot
             
@@ -154,7 +154,7 @@ Private Sub txtZRot_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     Else
         If Not IsNumeric(z) Then                 ' Replace with the previous value
             Me.ScrollBarZ.Value = zRot + 180
-            MsgBox "Invalid data Entry"
+            MsgBox "Invalid data Entry", vbCritical, "Invalid Data"
             Me.txtZRot = zRot
             Me.lblZScrollRot.Caption = Me.txtZRot
             

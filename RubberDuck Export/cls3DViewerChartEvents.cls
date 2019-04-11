@@ -26,7 +26,7 @@ Private Sub ThreeDViewerclass_MouseUp(ByVal Button As Long, ByVal Shift As Long,
     Dim myX, myY As Double
     'yes if the mouse-left is clicked
     If Button = xlPrimaryButton Then
-        With ActiveChart
+        With ThisWorkbook.ActiveChart
             'Get the coordinates of the selected element by the user
             .GetChartElement x, y, ElementID, Arg1, Arg2
             If ElementID = xlSeries Or ElementID = xlDataLabel Then
@@ -64,7 +64,7 @@ Private Sub DisplayMassProperties(MyRow As Long)
     MyString = MyString & " Z cg = " & z & Chr(10)
 
 
-    MsgBox MyString
+    MsgBox MyString, vbInformation, "Mass Point Data"
 
 End Sub
 

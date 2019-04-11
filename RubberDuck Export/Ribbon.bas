@@ -95,15 +95,8 @@ Public Sub BtnReActivatePointFinderBtn_onAction(control As IRibbonControl)
     '
     ' Code for onAction callback. Ribbon control button
     '
-    If Application.ActiveSheet.Name = "Data" Then
-        Application.Sheets("Data").Activate
-    
-    Else
-    
-        Application.Sheets("Data").Select
-        Application.Sheets("Data").Activate
-    
-    End If
+    SelectChart ThisWorkbook.Sheets("Data")
+
 End Sub
 
 Sub PredefineViews(myform As String, xDeg As Integer, yDeg As Integer, zdeg As Integer)

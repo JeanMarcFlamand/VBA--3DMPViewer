@@ -3,6 +3,7 @@
     '    frmRotationAxis
     PrepareForm
     
+    SelectChart ThisWorkbook.Sheets("Data")
    
 
 End Sub
