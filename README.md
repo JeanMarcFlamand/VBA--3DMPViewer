@@ -4,3 +4,9 @@ MSExcel Macro (VBA) to help mass properties engineers to view 3D mass properties
 ![alt text](https://github.com/JeanMarcFlamand/VBA--3DMPViewer/blob/master/ScreenShots/3DMPViewerRibbon.png)
 
 ![alt text](https://github.com/JeanMarcFlamand/VBA--3DMPViewer/blob/master/ScreenShots/3DMPViewerWorksheet.png)
+
+
+## The project is temporarily suspended because I'm focusing on  C# programming language.
+- Ref:
+  - (https://github.com/JeanMarcFlamand/CSharpPersonalLearning-ConsoleApps)
+  - (https://github.com/JeanMarcFlamand/CSharpPersonalLearning-WPFApps)
